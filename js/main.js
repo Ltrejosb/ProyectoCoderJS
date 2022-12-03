@@ -1,5 +1,5 @@
 
- 
+
 //Función para calcular el índice de masa corporal (IMC)
 function CalcularIMC(sexo, altura, peso) 
 {
@@ -61,9 +61,10 @@ function MostrarResultadoIMC (sexo, altura, peso, indice)
   var mensaje = "Usted mide " + altura / 100 + " metros y pesa " + peso + " Kg. \n \n " + indice;
   alert (mensaje);
 }	
-
+//Saludo
+var saludo = alert("Bienvenidos a su calculo de IMC \n Porfavor siga las instrucciones ")
 //Petición de datos al usuario (sexo, altura, peso)
-var sexo = prompt("Indique su sexo, hombre o mujer:", "");
+var sexo = prompt("Indique su sexo,h para hombre , m para mujer:", "");
 //La función parseInt permite convertir un string en número
 var altura = parseInt(prompt("Indique su altura en centímetros:", ""));
 var peso = parseInt(prompt("Indique su peso en kilógramos:", ""));
