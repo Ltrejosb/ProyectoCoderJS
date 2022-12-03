@@ -1,6 +1,5 @@
-
-
 //Función para calcular el índice de masa corporal (IMC)
+
 function CalcularIMC(sexo, altura, peso) 
 {
   //La función Math.roud sirve para redondear valores
@@ -52,6 +51,7 @@ function CalcularIMC(sexo, altura, peso)
       resultado = "No se ha podido calcular. No ha indicado h (hombre) o m (mujer).";
   }
   //Con toFixed reduciremos a 2 el número de decimales a mostrar
+
   return "Su IMC es: " + indice.toFixed(2) + " y su clasificación es: " + resultado;
 }
 
@@ -60,16 +60,25 @@ function MostrarResultadoIMC (sexo, altura, peso, indice)
 {
   var mensaje = "Usted mide " + altura / 100 + " metros y pesa " + peso + " Kg. \n \n " + indice;
   alert (mensaje);
-}	
-//Saludo
+}
+
+let rehacer;
+
+do {
+
 var saludo = alert("Bienvenidos a su calculo de IMC \n Porfavor siga las instrucciones ")
 //Petición de datos al usuario (sexo, altura, peso)
-var sexo = prompt("Indique su sexo,h para hombre , m para mujer:", "");
+var sexo = prompt("Indique su sexo,(h) para hombre , (m) para mujer:").toLowerCase();
 //La función parseInt permite convertir un string en número
 var altura = parseInt(prompt("Indique su altura en centímetros:", ""));
 var peso = parseInt(prompt("Indique su peso en kilógramos:", ""));
 
 //Llamamos a las funciones anteriores para el cálculo y para mostrar los resultados
 var resultado = CalcularIMC(sexo, altura, peso);
-MostrarResultadoIMC(sexo, altura, peso, resultado); 
+MostrarResultadoIMC(sexo, altura, peso, resultado);
+
+rehacer = prompt("Desea realizar el cálculo nuevamente? (SI/NO)").toUpperCase();
+} while (rehacer == "SI");
+
+alert("Muchas gracias");
 
