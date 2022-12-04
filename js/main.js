@@ -77,8 +77,8 @@ var peso = parseInt(prompt("Indique su peso en kilógramos:", ""));
 var resultado = CalcularIMC(sexo, altura, peso);
 MostrarResultadoIMC(sexo, altura, peso, resultado);
 
-rehacer = prompt("Desea realizar el cálculo nuevamente? (SI/NO)").toUpperCase();
-} while (rehacer == "SI");
+rehacer = prompt("Desea realizar el cálculo nuevamente? (SI/NO)").toLowerCase();
+} while (rehacer == "si");
 
 alert("Muchas gracias");
 
