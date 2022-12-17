@@ -1,84 +1,87 @@
-//Función para calcular el índice de masa corporal (IMC)
-
-function CalcularIMC(sexo, altura, peso) 
-{
-  //La función Math.roud sirve para redondear valores
-  altura = Math.round(altura) / 100;
-  peso = Math.round(peso);
-  
-  var indice = (peso / (altura * 2));
-  var resultado = "";
-  //Sexo, si es "m" mujer y si es "h" hombre
-  switch (sexo)
+// Array para la clasificacion de hombres
+var clasificacionHombre = [
   {
-    case "m":
-      if (indice < 20)
-      {
-        resultado = "Bajo Peso.";
-      }
-      else if (indice >= 20 && indice < 24)
-      {
-        resultado = "Normal.";
-      }
-      else if (indice >= 24 && indice < 29)
-      {
-        resultado = "Sobrepeso.";
-      }
-      else
-      {
-        resultado = "Obesidad.";
-      }  
-      break
-    case "h":
-      if (indice < 21)
-      {
-        resultado = "Bajo Peso. .";
-      }
-      else if (indice >= 21 && indice < 25)
-      {
-        resultado = "Peso Normal.";
-      }
-      else if (indice >= 25 && indice < 30)
-      {
-        resultado = "Sobrepeso.";
-      }
-      else
-      {
-        resultado = "Obesidad";
-      }		   
-      break
-    default:
-      resultado = "No se ha podido calcular. No ha indicado h (hombre) o m (mujer).";
+    rango: 'Bajo peso',
+    recomendacion: 'Considera aumentar tu ingesta de proteínas y calorías para ganar peso.'
+  },
+  {
+    rango: 'Peso normal',
+    recomendacion: '¡Mantén el buen trabajo!'
+  },
+  {
+    rango: 'Sobrepeso',
+    recomendacion: 'Considera reducir tu ingesta de calorías y aumentar tu actividad física para perder peso.'
+  },
+  {
+    rango: 'Obeso',
+    recomendacion: 'Es importante consultar a un profesional de la salud para desarrollar un plan de pérdida de peso.'
   }
-  //Con toFixed reduciremos a 2 el número de decimales a mostrar
+];
 
-  return "Su IMC es: " + indice.toFixed(2) + " y su clasificación es: " + resultado;
+// Array para clasificacion de mujeres
+var clasificacionMujer = [
+  {
+    rango: 'Bajo peso',
+    recomendacion: 'Considera aumentar tu ingesta de proteínas y calorías para ganar peso.'
+  },
+  {
+    rango: 'Peso normal',
+    recomendacion: '¡Mantén el buen trabajo!'
+  },
+  {
+    rango: 'Sobrepeso',
+    recomendacion: 'Considera reducir tu ingesta de calorías y aumentar tu actividad física para perder peso.'
+  },
+  {
+    rango: 'Obeso',
+    recomendacion: 'Es importante consultar a un profesional de la salud para desarrollar un plan de pérdida de peso.'
+  }
+];
+  //Se une js a el boton "calcular" 
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Obtenemos los valores de peso, altura y genero
+  var peso = document.querySelector('#pesoInput').value;
+  var altura = document.querySelector('#alturaInput').value;
+  var genero = document.querySelector('#selectorGenero').value;
+
+  // Validamos la información
+  if (peso <= 0 || altura <= 0) {
+    document.querySelector('#result').innerHTML = 'Datos de entrada inválidos';
+    return;
+  }
+
+  // Calculamos el IMC
+  var imc = peso / (altura / 100) ** 2;
+
+  // Inicializamos el mensaje de resultado
+var resultado = 'Tu IMC es ' + imc.toFixed(2) + '. ';
+
+// Añadimos el mensaje segun el genero
+if (genero === 'hombre') {
+if (imc < 20) {
+resultado += clasificacionHombre[0].rango + '. ' + clasificacionHombre[0].recomendacion;
+} else if (imc >= 20 && imc < 25) {
+resultado += clasificacionHombre[1].rango + '. ' + clasificacionHombre[1].recomendacion;
+} else if (imc >= 25 && imc < 30) {
+resultado += clasificacionHombre[2].rango + '. ' + clasificacionHombre[2].recomendacion;
+} else {
+resultado += clasificacionHombre[3].rango + '. ' + clasificacionHombre[3].recomendacion;
+}
+} else {
+if (imc < 19) {
+resultado += clasificacionMujer[0].rango + '. ' + clasificacionMujer[0].recomendacion;
+} else if (imc >= 19 && imc < 24) {
+resultado += clasificacionMujer[1].rango + '. ' + clasificacionMujer[1].recomendacion;
+} else if (imc >= 24 && imc < 29) {
+resultado += clasificacionMujer[2].rango + '. ' + clasificacionMujer[2].recomendacion;
+} else {
+resultado += clasificacionMujer[3].rango + '. ' + clasificacionMujer[3].recomendacion;
+}
 }
 
-//Función para mostrar el resultado por pantalla
-function MostrarResultadoIMC (sexo, altura, peso, indice)
-{
-  var mensaje = "Usted mide " + altura / 100 + " metros y pesa " + peso + " Kg. \n \n " + indice;
-  alert (mensaje);
-}
-
-let rehacer;
-
-do {
-
-var saludo = alert("Bienvenidos a su calculo de IMC \n Porfavor siga las instrucciones ")
-//Petición de datos al usuario (sexo, altura, peso)
-var sexo = prompt("Indique su sexo,(h) para hombre , (m) para mujer:").toLowerCase();
-//La función parseInt permite convertir un string en número
-var altura = parseInt(prompt("Indique su altura en centímetros:", ""));
-var peso = parseInt(prompt("Indique su peso en kilógramos:", ""));
-
-//Llamamos a las funciones anteriores para el cálculo y para mostrar los resultados
-var resultado = CalcularIMC(sexo, altura, peso);
-MostrarResultadoIMC(sexo, altura, peso, resultado);
-
-rehacer = prompt("Desea realizar el cálculo nuevamente? (SI/NO)").toLowerCase();
-} while (rehacer == "si");
-
-alert("Muchas gracias");
+// Mostramos el resultado
+document.querySelector('#resultado').innerHTML = resultado;
+});
 
