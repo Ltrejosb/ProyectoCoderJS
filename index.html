@@ -1,35 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Calculadora de IMC</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.2/chart.min.js"></script>
+    
 </head>
 <body>
-  <div class="container mt-5">
-    <form>
-      <div class="form-group">
-        <label for="pesoInput">Peso (kg)</label>
-        <input type="number" class="form-control" id="pesoInput">
+    <div class="gradient">
+      <div class="container ">
+        <div>
+          <h1 class="my-4">CALCULADORA DE IMC</h1>
+        </div>
+          <form id="imcForm">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre">
+            </div>
+            <div class="form-group">
+              <label for="weight">Peso (kg)</label>
+              <input type="number" class="form-control" id="weight" placeholder="Ingrese su peso">
+            </div>
+            <div class="form-group">
+              <label for="height">Altura (cm)</label>
+              <input type="number" class="form-control" id="height" placeholder="Ingrese su altura">
+            </div>
+            <div class="form-group">
+              <label for="gender">Género</label>
+              <select class="form-control" id="gender">
+                <option value="hombre ">Hombre</option>
+                <option value="mujer">Mujer</option>
+              </select>
+            </div>
+            <div class="d-flex justify-content-around">
+              <button type="submit" class="btn btn-primary">Calcular IMC</button>
+              <button type="button" id="clear" class="btn btn-danger">Limpiar tabla</button>
+            </div>    
+          </form>
+          <br>
+          <table class="table my-4" id="imcTable">
+            <thead class="table-primary">
+              <tr>
+                <th>Nombre</th>
+                <th>Peso (kg)</th>
+                <th>Altura (cm)</th>
+                <th>Género</th>
+                <th>IMC</th>
+                <th>Recomendación</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider"></tbody>
+          </table>
       </div>
-      <div class="form-group">
-        <label for="alturaInput">Altura (cm)</label>
-        <input type="number" class="form-control" id="alturaInput">
-      </div>
-      <div class="form-group">
-        <label for="selectorGenero">Género</label>
-        <select class="form-control" id="selectorGenero">
-          <option value="hombre">Masculino</option>
-          <option value="mujer">Femenino</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Calcular</button>
-    </form>
-    <div id="resultado" class="mt-3"></div>
-  </div>
+    </div>
+    
+    
 <script src="./js/main.js"></script>    
 </body>
 </html>
   
+
      
   
   

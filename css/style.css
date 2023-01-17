@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,100;1,700&display=swap');
+
+
+.container{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto";
+    color: #95bdff;
+    font-weight: 700;
+}
+
+label, tbody{
+    font-family: "Roboto";
+    font-weight: 700;
+
+    
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #cce3ff;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #95bdff;
+  }
+
+.gradient {
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(334deg, #6b97f7, #7525e2, #f7137e);
+	background-size: 180% 180%;
+	animation: gradient-animation 6s ease infinite;
+}
+
+@keyframes gradient-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}  
