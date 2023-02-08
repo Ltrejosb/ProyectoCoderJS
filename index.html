@@ -55,9 +55,15 @@
             <tbody class="table-group-divider"></tbody>
           </table>
       </div>
-      <div class="container">
-        <canvas id="imcChart" width="600" height="400"></canvas>
+      <div>
+        <h1 class="my-4">GRAFICOS</h1>
       </div>
+      <div class="container mt-5">
+        <canvas id="imcChart" width="600" height="400"></canvas>
+        <div class="d-flex justify-content-around"></div>
+          <button type="button" id="clearChart" class="btn btn-danger">Limpiar Gráficos</button>
+          <button type="button" id="genChart" class="btn btn-primary">Generar Gráficos</button>
+        <div>
       </div>
 <script type="module" src="./js/main.js"></script>
 <script type="module" src="./js/chart.js"></script>
