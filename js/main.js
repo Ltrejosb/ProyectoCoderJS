@@ -61,6 +61,8 @@ document.getElementById("imcForm").addEventListener("submit", function(e) {
         });
     });
 
+    
+    
     // Agregar evento al boton limpiar tabla
 
 document.getElementById("clear").addEventListener("click", function() {
@@ -77,6 +79,8 @@ document.getElementById("clear").addEventListener("click", function() {
     
     data = [];
 });
+
+ 
 
 
 

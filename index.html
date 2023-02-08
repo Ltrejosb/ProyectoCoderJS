@@ -6,7 +6,7 @@
     <title>Calculadora de IMC</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.2/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
     
 </head>
 <body>
@@ -55,10 +55,14 @@
             <tbody class="table-group-divider"></tbody>
           </table>
       </div>
-    </div>
-    
-    
-<script src="./js/main.js"></script>    
+      <div class="container">
+        <canvas id="imcChart" width="600" height="400"></canvas>
+      </div>
+      </div>
+<script type="module" src="./js/main.js"></script>
+<script type="module" src="./js/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js" integrity="sha512-qKyIokLnyh6oSnWsc5h21uwMAQtljqMZZT17CIMXuCQNIfFSFF4tJdMOaJHL9fQdJUANid6OB6DRR0zdHrbWAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 </html>
   
